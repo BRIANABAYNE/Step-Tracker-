@@ -12,6 +12,7 @@
 		3AB24E842BEFF5E900C70C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB24E832BEFF5E900C70C82 /* Assets.xcassets */; };
 		3AB24E872BEFF5E900C70C82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB24E862BEFF5E900C70C82 /* Preview Assets.xcassets */; };
 		3AB24E902BF2B2C900C70C82 /* HealthKitPermissionPrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB24E8F2BF2B2C900C70C82 /* HealthKitPermissionPrimingView.swift */; };
+		3AB24E932BF2BA4800C70C82 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB24E922BF2BA4800C70C82 /* HealthKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,8 @@
 		3AB24E832BEFF5E900C70C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB24E862BEFF5E900C70C82 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3AB24E8F2BF2B2C900C70C82 /* HealthKitPermissionPrimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitPermissionPrimingView.swift; sourceTree = "<group>"; };
+		3AB24E912BF2B83800C70C82 /* StepTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepTracker.entitlements; sourceTree = "<group>"; };
+		3AB24E922BF2BA4800C70C82 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,8 @@
 		3AB24E7E2BEFF5E700C70C82 /* StepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3AB24E912BF2B83800C70C82 /* StepTracker.entitlements */,
+				3AB24E922BF2BA4800C70C82 /* HealthKitManager.swift */,
 				3AB24E7F2BEFF5E700C70C82 /* StepTrackerApp.swift */,
 				3AB24E8F2BF2B2C900C70C82 /* HealthKitPermissionPrimingView.swift */,
 				3AB24E812BEFF5E700C70C82 /* ContentView.swift */,
@@ -142,6 +147,7 @@
 			files = (
 				3AB24E822BEFF5E700C70C82 /* ContentView.swift in Sources */,
 				3AB24E802BEFF5E700C70C82 /* StepTrackerApp.swift in Sources */,
+				3AB24E932BF2BA4800C70C82 /* HealthKitManager.swift in Sources */,
 				3AB24E902BF2B2C900C70C82 /* HealthKitPermissionPrimingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,12 +279,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StepTracker/StepTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StepTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = X5MZCV93J6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app shows your step and weight data in an interactive chart.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app allows you to add data to weight data to Apple Health.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,12 +311,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StepTracker/StepTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StepTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = X5MZCV93J6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app shows your step and weight data in an interactive chart.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app allows you to add data to weight data to Apple Health.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
