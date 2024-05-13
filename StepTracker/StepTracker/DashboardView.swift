@@ -29,7 +29,7 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 }
 
 
-struct ContentView: View {
+struct DashboardView: View {
     
     // MARK: - Properties
     
@@ -109,7 +109,7 @@ struct ContentView: View {
             .padding()
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self)  { metric in
-                Text(metric.title)
+                HealthDataSwiftView(metric: metric)
             }
         }
         /// Ternary Operator
@@ -118,5 +118,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    DashboardView()
 }
