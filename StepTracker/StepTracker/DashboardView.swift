@@ -49,8 +49,9 @@ struct DashboardView: View {
                     /// Creates a title key
                     Picker("Selected Stat", selection: $selectedStat) {
                         /// Using for each with the Identifiable - Got all cases by CaseIterable
-                        ForEach(HealthMetricContext.allCases) { metric in
-                            Text(metric.title)
+                        ForEach(HealthMetricContext.allCases) {
+                            /// $0 is for each item that you are iterating through in the array
+                            Text($0.title)
                         }
                     }
                     .pickerStyle(.segmented)
