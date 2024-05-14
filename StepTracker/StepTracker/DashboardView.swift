@@ -24,9 +24,13 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 }
 
 struct DashboardView: View {
-    
+    /// Similar to UIKIt with properties but now we use @Environment
+    @Environment(HealthKitManager.self) private var hkManager
     /// How to access userDefaults
     @AppStorage("hasSeenPermissionPriming") private var hasSeenPermissionPriming = false
+    
+    ///@State creates a property wrapper to ask SwiftUI to manage the memory. When we say @State to make a property, we hand over the control to SwiftUI so that it remains persistent in memory for as long as the view exists. When that state changes, SwiftUI knows to automatically reload the view with the latest changes so it can reflect it's new information. 
+    
     @State private var isShowingPermissionPrimmingSheet = false
     @State private var selectedStat: HealthMetricContext = .steps
     var isSteps: Bool { selectedStat == .steps }
@@ -90,7 +94,7 @@ struct DashboardView: View {
                     .background(RoundedRectangle(cornerRadius: 12).fill(Color(.secondarySystemBackground)))
                 }
                 .padding()
-                .onAppear {
+                .task {
                     isShowingPermissionPrimmingSheet = !hasSeenPermissionPriming
                 }
             }
