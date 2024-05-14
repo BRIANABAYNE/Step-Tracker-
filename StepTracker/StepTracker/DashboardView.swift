@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+
+
 enum HealthMetricContext: CaseIterable, Identifiable {
+    
     case steps, weight
     var id: Self { self }
     
@@ -22,8 +25,12 @@ enum HealthMetricContext: CaseIterable, Identifiable {
 
 struct DashboardView: View {
     
+    /// How to access userDefaults
+    @AppStorage("hasSeenPermissionPriming") private var hasSeenPermissionPriming = false
+    @State private var isShowingPermissionPrimmingSheet = false
     @State private var selectedStat: HealthMetricContext = .steps
     var isSteps: Bool { selectedStat == .steps }
+    
     
     var body: some View {
         NavigationStack {
@@ -82,12 +89,22 @@ struct DashboardView: View {
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 12).fill(Color(.secondarySystemBackground)))
                 }
+                .padding()
+                .onAppear {
+                    isShowingPermissionPrimmingSheet = !hasSeenPermissionPriming
+                }
             }
             .padding()
             .navigationTitle("Dashboard")
             .navigationDestination(for: HealthMetricContext.self) { metric in
                 HealthDataListView(metric: metric)
             }
+            .sheet(isPresented: $isShowingPermissionPrimmingSheet,
+                   onDismiss: {
+                // fetching health data
+            },content: {
+                HealthKitPermissionPrimingView(hasSeen: $hasSeenPermissionPriming)
+            })
         }
         .tint(isSteps ? .pink : .indigo)
     }
@@ -95,4 +112,5 @@ struct DashboardView: View {
 
 #Preview {
     DashboardView()
+        .environment(HealthKitManager())
 }
