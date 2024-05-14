@@ -11,6 +11,8 @@ import Observation
 
 @Observable class HealthKitManager {
     
-    let hkManager = HealthKitManager()
+ 
     let store = HKHealthStore()
+    
+    let types: Set = [HKQuantityType(.stepCount), HKQuantityType(.bodyMass)]
 }
